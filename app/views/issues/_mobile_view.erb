@@ -50,4 +50,5 @@ div.autoscroll table {
   <% query.inline_columns.each_with_index do |column, index| %>
          div.autoscroll td:nth-of-type(<%= index + 2 %>):before { content: "<%=column.name %>" }
   <% end %>
+}
 </style>
