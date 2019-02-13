@@ -1,0 +1,53 @@
+<style>
+@media
+only screen and (max-width: 760px),
+(min-device-width: 768px) and (max-device-width: 1024px)  {
+
+  /* Force table to not be like tables anymore */
+	div.autoscroll table, thead, tbody, th, td, tr {
+		display: block;
+	}
+
+div.autoscroll table {
+    empty-cells: show;
+}
+
+	/* Hide table headers (but not display: none;, for accessibility) */
+	div.autoscroll thead tr {
+		position: absolute;
+		top: -9999px;
+		left: -9999px;
+	}
+
+	div.autoscroll tr { border: 1px solid #ccc; }
+  div.autoscroll table.list td.id {
+    width: 100%;
+  }
+  div.autoscroll table.list td.id:before { content: "id" }
+  div.autoscroll table.list td.checkbox {
+    display: none;
+  }
+	div.autoscroll td {
+		/* Behave  like a "row" */
+		border: none;
+		border-bottom: 1px solid #eee;
+		position: relative;
+		padding-left: 50%;
+    text-align: center !important;
+    min-height: 1.5em;
+	}
+
+	div.autoscroll td:before {
+		/* Now like a table header */
+		position: absolute;
+		/* Top/left values mimic padding */
+		top: 6px;
+		left: 6px;
+		width: 45%;
+		padding-right: 10px;
+		white-space: nowrap;
+	}
+  <% query.inline_columns.each_with_index do |column, index| %>
+         div.autoscroll td:nth-of-type(<%= index + 2 %>):before { content: "<%=column.name %>" }
+  <% end %>
+</style>
