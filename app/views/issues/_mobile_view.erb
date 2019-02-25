@@ -48,7 +48,7 @@ div.autoscroll table {
 		white-space: nowrap;
 	}
   <% query.inline_columns.each_with_index do |column, index| %>
-         div.autoscroll td:nth-of-type(<%= index + 2 %>):before { content: "<%=column.label %>" }
+         div.autoscroll td:nth-of-type(<%= index + 2 %>):before { content: "<%=l("field_#{column.name}") %>" }
   <% end %>
 }
 </style>
