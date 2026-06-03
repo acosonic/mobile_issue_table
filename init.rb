@@ -7,4 +7,4 @@ Redmine::Plugin.register :mobile_issue_table do
   author_url 'https://linkedin.com/in/acosonic'
 end
 
-require_dependency 'mobile_issue_table_hook_listener'
+require_relative "lib/mobile_issue_table_hook_listener"
